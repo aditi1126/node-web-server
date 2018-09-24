@@ -2,6 +2,7 @@ const express = require('express'); //load express
 const hbs = require('hbs');//load handlebars
 var app = express(); //setting var app equal to return from calling fn express
 const fs = require('fs');
+const port = process.env.PORT || 3000; //heroku chooses port else it will run on port 3000
 
 hbs.registerPartials(__dirname + '/views/partials'); //arg is directory //to use partials for removing code redundancy
 
@@ -60,6 +61,6 @@ app.get('/about', (req,res) => { //3rd way
 
 
 
-app.listen(3000, () => { //2nd arg is optional
-  console.log('Server is up on port 3000');
+app.listen(port, () => { //2nd arg is optional
+  console.log(`Server is up on port ${port}`);
 });
